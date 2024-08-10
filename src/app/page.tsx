@@ -8,7 +8,7 @@ const page: React.FC = () => {
     <ClerkProvider
       appearance={{
         baseTheme: dark,
-        signIn: { baseTheme: dark },
+        layout: {},
       }}
     >
       <SignedOut>

@@ -23,12 +23,12 @@ const HomePage: React.FC = () => {
       </p>
 
       <div className="flex space-x-4">
-        <Button asChild>
-          <SignIn />
-        </Button>
-        <Button asChild>
-          <SignUpButton />
-        </Button>
+        <SignInButton mode="modal">
+          <Button>Log in</Button>
+        </SignInButton>
+        <SignUpButton mode="modal">
+          <Button>Sign up</Button>
+        </SignUpButton>
       </div>
 
       <div className="mt-12 max-w-xl text-center">
