@@ -1,15 +1,7 @@
 "use client";
 import { Button } from "../components/ui/button";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "../components/ui/dialog";
 
-import { SignUpButton, SignInButton, SignIn } from "@clerk/nextjs";
+import { SignUpButton, SignInButton } from "@clerk/nextjs";
 
 const HomePage: React.FC = () => {
   return (

@@ -15,7 +15,9 @@ from datetime import timedelta
 from dotenv import load_dotenv
 import os
 
-load_dotenv()
+BASEDIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..'))
+load_dotenv(os.path.join(BASEDIR, '.env'))
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -33,7 +35,17 @@ DEBUG = True
 ALLOWED_HOSTS = ["*"]
 
 REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": (
+        "rest_framework_simplejwt.authentication.JWTAuthentication",
+    ),
+    "DEFAULT_PERMISSION_CLASSES": [
+        "rest_framework.permissions.IsAuthenticated"
+    ],
+}
 
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=7),
 }
 
 
@@ -49,7 +61,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'corsheaders',
     'api',
-    'django_clerk',
 ]
 
 MIDDLEWARE = [
@@ -83,26 +94,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-
-# Set up CORS
 CORS_ORIGIN_ALLOW_ALL = True
 
 # Database settings (adjust with your PostgreSQL details)
-DATABASES = {
+DATABASES={
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'your_db_name',
-        'USER': 'your_db_user',
-        'PASSWORD': 'your_db_password',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '5432',
     }
 }
-
-# Clerk configuration
-CLERK_FRONTEND_API = 'your_clerk_frontend_api'
-CLERK_API_KEY = 'your_clerk_api_key'
-CLERK_SECRET_KEY = 'your_clerk_secret_key'
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -144,3 +148,6 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWS_CREDENTIALS = True
