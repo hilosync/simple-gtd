@@ -1,7 +1,8 @@
 from rest_framework import serializers
-from .models import API
+from .models import Todo
 
-class APISerializer(serializers.ModelSerializer):
+class TodoSerializer(serializers.ModelSerializer):
     class Meta:
-        model = API
-        fields = '__all__'
+        model = Todo
+        fields = ['id', 'title', 'extra', 'completed', 'created_at', 'updated_at']
+        read_only_fields = ['id', 'created_at', 'updated_at']

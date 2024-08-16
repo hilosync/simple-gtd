@@ -1,15 +1,13 @@
 from rest_framework.routers import DefaultRouter
-from .views import APIViewSet
-from django.urls import path
+from .views import TodoViewSet
+from django.urls import include, path
 
 
 router = DefaultRouter()
-router.register(r'api', APIViewSet, basename='api')
+router.register(r'api', TodoViewSet, basename='api')
 
 urlpatterns = router.urls
 
-from .views import todos
-
 urlpatterns = [
-    path('todos/', todos),
+    path('', include(router.urls)),
 ]

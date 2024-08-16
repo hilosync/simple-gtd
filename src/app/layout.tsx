@@ -1,8 +1,13 @@
 import "~/styles/globals.css";
 import { ThemeProvider } from "~/components/ThemeProvider";
 import { Inter as FontSans } from "next/font/google";
+import axios from "axios";
 
 import { cn } from "../lib/utils";
+
+axios.defaults.xsrfHeaderName = "x-csrftoken";
+axios.defaults.xsrfCookieName = "csrftoken";
+axios.defaults.withCredentials = true;
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -20,6 +25,11 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
+        <input
+          type="hidden"
+          name="csrfmiddlewaretoken"
+          value="{{ csrf_token }}"
+        />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
