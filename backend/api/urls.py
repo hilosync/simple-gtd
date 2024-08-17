@@ -1,13 +1,10 @@
+from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import TodoViewSet
-from django.urls import include, path
-
 
 router = DefaultRouter()
-router.register(r'api', TodoViewSet, basename='api')
-
-urlpatterns = router.urls
+router.register(r'todos', TodoViewSet, basename='todo')
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('api/', include(router.urls)),
 ]

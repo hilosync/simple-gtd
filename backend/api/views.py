@@ -14,13 +14,26 @@ from .serializers import TodoSerializer
 
 
 class TodoViewSet(viewsets.ModelViewSet):
+    queryset = Todo.objects.all()
     authentication_classes = [ClerkAuthentication, SessionAuthentication]
     serializer_class = TodoSerializer
     def get_queryset(self):
-        print("heyyy")
         return Todo.objects.filter(user=self.request.user)
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+    def create(self, request, *args, **kwargs):
+        print("create method called")  # Debug print
+        print("Received data:", request.data)  # Debug print
+        return super().create(request, *args, **kwargs)
+
+    def list(self, request, *args, **kwargs):
+        print("list method called")  # Debug print
+        return super().list(request, *args, **kwargs)
+
+    # Explicitly define allowed methods
+    http_method_names = ['get', 'post', 'put', 'patch', 'delete']
+
 
 BASEDIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..'))
 load_dotenv(os.path.join(BASEDIR, '.env'))

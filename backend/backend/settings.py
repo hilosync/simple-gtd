@@ -70,7 +70,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -110,6 +110,10 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
     'x-requested-with',
     'withcredentials',
+    'Access-Control-Allow-Headers',
+    'Access-Control-Allow-Methods',
+    'Access-Control-Allow-Origin',
+    'Access-Control-Allow-Credentials',
 ]
 
 CORS_ALLOW_METHODS = ['DELETE', 'GET', 'OPTIONS', 'PATCH', 'POST', 'PUT']
