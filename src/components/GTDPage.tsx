@@ -3,7 +3,6 @@ import { useAuth } from "@clerk/nextjs";
 import axios from "axios";
 import Navbar from "./Navbar";
 import { useCallback, useEffect, useState } from "react";
-import TodoList from "./TodoList";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
 import { Checkbox } from "../components/ui/checkbox";
@@ -25,9 +24,11 @@ export interface Todo {
 const HomePage: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState(true);
-  const [completedTodos, setCompletedTodos] = useState<Todo[]>([]);
   const [title, setTitle] = useState("");
   const { getToken } = useAuth();
+
+  const completedTodos = todos.filter((todo) => todo.completed);
+  const activeTodos = todos.filter((todo) => !todo.completed);
 
   const fetchTodos = useCallback(async () => {
     setLoading(true);
@@ -41,6 +42,7 @@ const HomePage: React.FC = () => {
           },
         },
       );
+      console.log(response.data);
       setTodos(response.data);
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
@@ -65,44 +67,48 @@ const HomePage: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    const csrfToken = document.cookie
-      .split("; ")
-      .find((row) => row.startsWith("csrftoken"))
-      ?.split("=")[1];
-
     try {
       const token = await getToken();
-      const response = await axios.post<Todo>(
+      const newtodo = await axios.post<Todo>(
         "http://127.0.0.1:8000/api/todos/",
         { title },
         {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
-            "X-CSRFToken": csrfToken ?? "",
           },
           withCredentials: true,
         },
       );
 
-      console.log("Todo created:", response.data);
       setTitle("");
-      fetchTodos().catch((error) => {
-        console.error("Error in fetchTodos:", error);
-      });
+      console.log(newtodo.data);
+      setTodos([...todos, newtodo.data]);
     } catch (err) {
       console.error("Error creating todo:", err);
     }
   };
 
-  const handleToggleTodo = (todo: Todo) => {
-    const updatedTodo = { ...todo, completed: !todo.completed };
-    if (updatedTodo.completed) {
-      setCompletedTodos([...completedTodos, updatedTodo]);
-      setTodos(todos.filter((t) => t.id !== todo.id));
-    } else {
-      setTodos([...todos, updatedTodo]);
-      setCompletedTodos(completedTodos.filter((t) => t.id !== todo.id));
+  const toggleTodoCompletion = async (todoId: number) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === todoId ? { ...todo, completed: !todo.completed } : todo,
+    );
+    setTodos(updatedTodos);
+    try {
+      const token = await getToken();
+      await axios.patch(
+        `http://127.0.0.1:8000/api/todos/${todoId}/toggle_completion/`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        },
+      );
+    } catch (error) {
+      console.error("Error toggling todo completion:", error);
     }
   };
 
@@ -114,8 +120,6 @@ const HomePage: React.FC = () => {
           Simple GTD
         </h1>
 
-        {/* <Card className="mb-8">
-          <CardContent> */}
         <form onSubmit={handleSubmit} className="mb-8 flex space-x-2">
           <Input
             type="text"
@@ -128,8 +132,6 @@ const HomePage: React.FC = () => {
             <ArrowRight className="h-6 w-6" />
           </Button>
         </form>
-        {/* </CardContent>
-        </Card> */}
 
         <Card className="mb-8">
           <CardHeader>
@@ -143,11 +145,11 @@ const HomePage: React.FC = () => {
               </div>
             ) : (
               <ul className="space-y-2">
-                {todos.map((todo) => (
+                {activeTodos.map((todo) => (
                   <li key={todo.id} className="flex items-center space-x-2">
                     <Checkbox
                       checked={todo.completed}
-                      onCheckedChange={() => handleToggleTodo(todo)}
+                      onCheckedChange={() => toggleTodoCompletion(todo.id)}
                     />
                     <span>{todo.title}</span>
                   </li>
@@ -165,8 +167,7 @@ const HomePage: React.FC = () => {
             <ul className="space-y-2">
               {completedTodos.map((todo) => (
                 <li key={todo.id} className="flex items-center space-x-2">
-                  <Check className="h-4 w-4 text-green-500" />
-                  <span className="line-through">{todo.title}</span>
+                  <span>{todo.title}</span>
                 </li>
               ))}
             </ul>
@@ -174,43 +175,6 @@ const HomePage: React.FC = () => {
         </Card>
       </div>
     </div>
-
-    // <div>
-    //   <Navbar />
-    //   <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 py-2 dark:bg-black">
-    //     <h1 className="mb-4 text-center text-4xl font-bold">To Do</h1>
-
-    //     <div className="mt-12 max-w-xl text-center">
-    //       <div>
-    //         <form onSubmit={handleSubmit}>
-    //           <div>
-    //             <input
-    //               type="text"
-    //               id="title"
-    //               value={title}
-    //               onChange={(e) => setTitle(e.target.value)}
-    //               required
-    //             />
-    //           </div>
-    //           <button type="submit">{"Create Todo"}</button>
-    //         </form>
-    //       </div>
-    //       <div>
-    //         <h1>Todo List</h1>
-    //         <div>
-    //           {loading ? (
-    //             <div className="flex items-center justify-center">
-    //               <Loader2 className="animate-spin" />
-    //               <span className="ml-2">Loading todos...</span>
-    //             </div>
-    //           ) : (
-    //             <TodoList todos={todos} />
-    //           )}
-    //         </div>
-    //       </div>
-    //     </div>
-    //   </div>
-    // </div>
   );
 };
 
