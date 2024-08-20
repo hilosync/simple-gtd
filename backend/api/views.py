@@ -2,6 +2,8 @@ import json
 from dotenv import load_dotenv
 import requests
 from urllib.request import urlopen
+from rest_framework.decorators import action
+from rest_framework.response import Response
 from django.http import JsonResponse
 from rest_framework.authentication import SessionAuthentication
 import jwt
@@ -21,15 +23,14 @@ class TodoViewSet(viewsets.ModelViewSet):
         return Todo.objects.filter(user=self.request.user)
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-
-    def create(self, request, *args, **kwargs):
-        print("create method called")  # Debug print
-        print("Received data:", request.data)  # Debug print
-        return super().create(request, *args, **kwargs)
-
-    def list(self, request, *args, **kwargs):
-        print("list method called")  # Debug print
-        return super().list(request, *args, **kwargs)
+    
+    @action(detail=True, methods=['patch'])
+    def toggle_completion(self, request, pk=None):
+        todo = self.get_object()
+        todo.completed = not todo.completed
+        todo.save()
+        serializer = self.get_serializer(todo)
+        return Response(serializer.data)
 
     # Explicitly define allowed methods
     http_method_names = ['get', 'post', 'put', 'patch', 'delete']
@@ -37,50 +38,3 @@ class TodoViewSet(viewsets.ModelViewSet):
 
 BASEDIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..'))
 load_dotenv(os.path.join(BASEDIR, '.env'))
-
-
-# def todos(request):
-#     print('1')
-#     userid = validate_token(request.headers['Authorization'])
-#     print(userid)
-
-#     data = {
-#         'userId': userid,
-#     }
-#     print(data)
-#     return JsonResponse(data)
-
-
-# def validate_token(auth_header: str) -> str:
-#     """
-#     returns user_id if valid
-#     raises AuthenticationException otherwise
-#     """
-#     try:
-#         token = auth_header.split(" ")[1]
-#     except (AttributeError, KeyError):
-#         raise print("No authentication token provided")
-
-#     jwks = requests.get(
-#         "https://api.clerk.com/v1/jwks",
-#         headers={
-#             "Accept": "application/json",
-#             "Authorization": f"Bearer {os.getenv('CLERK_SECRET_KEY')}",
-#         },
-#     ).json()
-#     public_key = RSAAlgorithm.from_jwk(jwks["keys"][0])
-#     try:
-#         payload = jwt.decode(
-#             token,
-#             public_key,
-#             algorithms=["RS256"],
-#             options={"verify_signature": True},
-#         )
-#     except jwt.ExpiredSignatureError:
-#         raise print("Token has expired.")
-#     except jwt.DecodeError:
-#         raise print("Token decode error.")
-#     except jwt.InvalidTokenError:
-#         raise print("Invalid token.")
-#     user_id = payload.get("sub")
-#     return user_id
