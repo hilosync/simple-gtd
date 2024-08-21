@@ -3,9 +3,10 @@ django
 django-cors-headers
 djangorestframework
 djangorestframework-simplejwt
-PyJWT
+requests
 pytz
 sqlparse
 psycopg2-binary
 python-dotenv
 openai
+PyJWT

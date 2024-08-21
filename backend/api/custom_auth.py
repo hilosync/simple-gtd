@@ -25,7 +25,7 @@ def validate_token(auth_header: str) -> str:
     try:
         token = auth_header.split(" ")[1]
     except (AttributeError, KeyError):
-        raise print("No authentication token provided")
+        raise Exception("No authentication token provided")
 
     jwks = requests.get(
         "https://api.clerk.com/v1/jwks",
@@ -43,10 +43,10 @@ def validate_token(auth_header: str) -> str:
             options={"verify_signature": True},
         )
     except jwt.ExpiredSignatureError:
-        raise print("Token has expired.")
+        raise Exception("Token has expired.")
     except jwt.DecodeError:
-        raise print("Token decode error.")
+        raise Exception("Token decode error.")
     except jwt.InvalidTokenError:
-        raise print("Invalid token.")
+        raise Exception("Invalid token.")
     user_id = payload.get("sub")
     return user_id, payload
