@@ -5,23 +5,24 @@ import Navbar from "./Navbar";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
-import { Checkbox } from "../components/ui/checkbox";
 import {
   Card,
   CardContent,
   CardHeader,
   CardTitle,
 } from "../components/ui/card";
-import { Loader2, ArrowRight, Check } from "lucide-react";
+import TodoList from "./TodoList";
 
 export interface Todo {
   userId: string;
   id: number;
   title: string;
+  extra: string;
+  priority: number;
   completed: boolean;
 }
 
-const HomePage: React.FC = () => {
+const GTDPage: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState(true);
   const [title, setTitle] = useState("");
@@ -82,7 +83,6 @@ const HomePage: React.FC = () => {
       );
 
       setTitle("");
-      console.log(newtodo.data);
       setTodos([...todos, newtodo.data]);
     } catch (err) {
       console.error("Error creating todo:", err);
@@ -107,6 +107,28 @@ const HomePage: React.FC = () => {
           withCredentials: true,
         },
       );
+      fetchTodos().catch((error) => {
+        console.error("Error in fetchTodos:", error);
+      });
+    } catch (error) {
+      console.error("Error toggling todo completion:", error);
+    }
+  };
+
+  const handleOptimise = async () => {
+    try {
+      const token = await getToken();
+      await axios.post(
+        `http://127.0.0.1:8000/api/todos/generate_tips/`,
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        },
+      );
     } catch (error) {
       console.error("Error toggling todo completion:", error);
     }
@@ -116,66 +138,47 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Navbar />
       <div className="container mx-auto p-4">
-        <h1 className="mb-8 text-center text-4xl font-bold text-gray-900 dark:text-white">
-          Simple GTD
-        </h1>
-
         <form onSubmit={handleSubmit} className="mb-8 flex space-x-2">
           <Input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Enter your todo"
-            className="flex-grow text-lg"
+            className="mx-auto w-full max-w-2xl flex-grow text-lg"
           />
-          <Button type="submit" size="icon">
-            <ArrowRight className="h-6 w-6" />
-          </Button>
         </form>
 
-        <Card className="mb-8">
-          <CardHeader>
-            <CardTitle>Todo List</CardTitle>
-          </CardHeader>
-          <CardContent>
-            {loading ? (
-              <div className="flex items-center justify-center">
-                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-                <span>Loading todos...</span>
-              </div>
-            ) : (
-              <ul className="space-y-2">
-                {activeTodos.map((todo) => (
-                  <li key={todo.id} className="flex items-center space-x-2">
-                    <Checkbox
-                      checked={todo.completed}
-                      onCheckedChange={() => toggleTodoCompletion(todo.id)}
-                    />
-                    <span>{todo.title}</span>
-                  </li>
-                ))}
-              </ul>
-            )}
-          </CardContent>
-        </Card>
+        <div className="flex flex-col space-y-6">
+          <Card className="mx-auto w-full max-w-2xl">
+            <CardHeader className="flex flex-row items-center justify-between">
+              <CardTitle>My Todos</CardTitle>
+              <Button onClick={handleOptimise}>Optimise</Button>
+            </CardHeader>
+            <CardContent>
+              <TodoList
+                todos={activeTodos}
+                loading={loading}
+                onToggle={toggleTodoCompletion}
+              />
+            </CardContent>
+          </Card>
 
-        <Card>
-          <CardHeader>
-            <CardTitle>Completed</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <ul className="space-y-2">
-              {completedTodos.map((todo) => (
-                <li key={todo.id} className="flex items-center space-x-2">
-                  <span>{todo.title}</span>
-                </li>
-              ))}
-            </ul>
-          </CardContent>
-        </Card>
+          <Card className="mx-auto w-full max-w-2xl">
+            <CardHeader>
+              <CardTitle>Completed</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <TodoList
+                todos={completedTodos}
+                loading={loading}
+                onToggle={toggleTodoCompletion}
+              />
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   );
 };
 
-export default HomePage;
+export default GTDPage;

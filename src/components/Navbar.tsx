@@ -7,10 +7,8 @@ export const Navbar: React.FC = () => {
     <header
       className={cn("flex items-center justify-between bg-white p-4 shadow-md")}
     >
-      <div className="text-xl font-semibold">Simple GTD</div>
-      <div>
-        <UserButton></UserButton>
-      </div>
+      <div className="mx-auto text-xl font-semibold">Simple GTD</div>
+      <UserButton></UserButton>
     </header>
   );
 };

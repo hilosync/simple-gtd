@@ -32,6 +32,25 @@ SECRET_KEY = 'django-insecure-)*wt^4x%ue6n9v%jh3hg!i2^_fuqu%xs#-i%ix_d$v&i58)7@j
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'file': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': 'debug.log',
+        },
+    },
+    'loggers': {
+        '': {
+            'handlers': ['file'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}
+
 CSRF_TRUSTED_ORIGINS = ['http://*','https://*.127.0.0.1', 'http://localhost:3001', 'http://127.0.0.1:3001']
 
 ALLOWED_HOSTS = ["*"]
