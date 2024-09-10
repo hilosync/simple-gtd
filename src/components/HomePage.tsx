@@ -6,6 +6,7 @@ import { SignUpButton, SignInButton } from "@clerk/nextjs";
 const HomePage: React.FC = () => {
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-gray-50 py-2">
+      <h1 className="mb-4 text-center text-6xl font-bold">Simple GTD</h1>
       <h1 className="mb-4 text-center text-4xl font-bold">
         Welcome to ADHD-Friendly To-Do App
       </h1>

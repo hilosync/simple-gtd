@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import { useCallback, useEffect, useState } from "react";
 import { Button } from "../components/ui/button";
 import { Input } from "../components/ui/input";
+import { Separator } from "../components/ui/separator";
 import {
   Card,
   CardContent,
@@ -115,6 +116,27 @@ const GTDPage: React.FC = () => {
     }
   };
 
+  const handleDelete = async () => {
+    const updatedTodos = todos.filter((todo) => !todo.completed);
+    setTodos(updatedTodos);
+    try {
+      const token = await getToken();
+      await axios.delete(`http://127.0.0.1:8000/api/todos/delete_completed/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
+
+      fetchTodos().catch((error) => {
+        console.error("Error in fetchTodos:", error);
+      });
+    } catch (error) {
+      console.error("Error toggling todo completion:", error);
+    }
+  };
+
   const handleOptimise = async () => {
     try {
       const token = await getToken();
@@ -134,6 +156,8 @@ const GTDPage: React.FC = () => {
     }
   };
 
+  console.log(completedTodos);
+
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Navbar />
@@ -145,6 +169,7 @@ const GTDPage: React.FC = () => {
             onChange={(e) => setTitle(e.target.value)}
             placeholder="Enter your todo"
             className="mx-auto w-full max-w-2xl flex-grow text-lg"
+            autoFocus
           />
         </form>
 
@@ -154,6 +179,7 @@ const GTDPage: React.FC = () => {
               <CardTitle>My Todos</CardTitle>
               <Button onClick={handleOptimise}>Optimise</Button>
             </CardHeader>
+            <Separator className="my-2" />
             <CardContent>
               <TodoList
                 todos={activeTodos}
@@ -164,15 +190,21 @@ const GTDPage: React.FC = () => {
           </Card>
 
           <Card className="mx-auto w-full max-w-2xl">
-            <CardHeader>
+            <CardHeader className="flex flex-row items-center justify-between">
               <CardTitle>Completed</CardTitle>
+              <Button onClick={handleDelete}>Delete All</Button>
             </CardHeader>
+            <Separator className="my-1" />
             <CardContent>
-              <TodoList
-                todos={completedTodos}
-                loading={loading}
-                onToggle={toggleTodoCompletion}
-              />
+              {completedTodos.length != 0 ? (
+                <TodoList
+                  todos={completedTodos}
+                  loading={loading}
+                  onToggle={toggleTodoCompletion}
+                />
+              ) : (
+                <p>No todos completed</p>
+              )}
             </CardContent>
           </Card>
         </div>

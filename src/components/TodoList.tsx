@@ -8,17 +8,16 @@ const TodoList: React.FC<{
   loading: boolean;
   onToggle: (id: number) => void;
 }> = ({ todos, loading, onToggle }) => {
-  // Sort todos by priority (highest to lowest)
   const sortedTodos = [...todos].sort((a, b) => b.priority - a.priority);
 
-  if (loading) {
-    return (
-      <div className="flex items-center justify-center p-4">
-        <Loader2 className="mr-2 h-6 w-6 animate-spin" />
-        <span className="text-lg">Loading todos...</span>
-      </div>
-    );
-  }
+  // if (loading) {
+  //   return (
+  //     <div className="flex items-center justify-center p-4">
+  //       <Loader2 className="mr-2 h-6 w-6 animate-spin" />
+  //       <span className="text-lg">Loading todos...</span>
+  //     </div>
+  //   );
+  // }
 
   return (
     <ScrollArea className="h-[400px] pr-4">

@@ -37,13 +37,23 @@ class TodoViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
+
+    @action(detail=False, methods=['delete'])
+    def delete_completed(self, serializer):
+        objects = Todo.objects.filter(user=self.request.user, completed=True)
+        for todo in objects:
+            todo.delete()
+
+        return Response(status=200)
+
+
     @action(detail=True, methods=['patch'])
     def toggle_completion(self, request, pk=None):
         todo = self.get_object()
         todo.completed = not todo.completed
         todo.save()
         serializer = self.get_serializer(todo)
-        return Response(serializer.data)
+        return Response(status=200)
 
     @action(detail=False, methods=['post'])
     def generate_tips(self, request):
