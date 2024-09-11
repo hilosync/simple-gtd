@@ -5,21 +5,34 @@ import { ScrollArea } from "../components/ui/scroll-area";
 
 const TodoList: React.FC<{
   todos: Todo[];
+  completed: boolean;
   loading: boolean;
   onToggle: (id: number) => void;
-}> = ({ todos, loading, onToggle }) => {
-  const sortedTodos = [...todos].sort((a, b) => b.priority - a.priority);
+}> = ({ todos, completed, loading, onToggle }) => {
+  const { filteredTodos, noTodosText } = completed
+    ? {
+        filteredTodos: todos.filter((todo) => todo.completed),
+        noTodosText: "No todos completed yet",
+      }
+    : {
+        filteredTodos: todos.filter((todo) => !todo.completed),
+        noTodosText: "Create a new todo above!",
+      };
 
-  // if (loading) {
-  //   return (
-  //     <div className="flex items-center justify-center p-4">
-  //       <Loader2 className="mr-2 h-6 w-6 animate-spin" />
-  //       <span className="text-lg">Loading todos...</span>
-  //     </div>
-  //   );
-  // }
+  const sortedTodos = [...filteredTodos].sort(
+    (a, b) => b.priority - a.priority,
+  );
 
-  return (
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center p-4">
+        <Loader2 className="mr-2 h-6 w-6 animate-spin" />
+        <span className="text-lg">Loading todos...</span>
+      </div>
+    );
+  }
+
+  return sortedTodos.length != 0 ? (
     <ScrollArea className="h-[400px] pr-4">
       <ul className="space-y-4">
         {sortedTodos.map((todo) => (
@@ -45,6 +58,8 @@ const TodoList: React.FC<{
         ))}
       </ul>
     </ScrollArea>
+  ) : (
+    <p className="pt-4 text-center text-slate-400">{noTodosText}</p>
   );
 };
 

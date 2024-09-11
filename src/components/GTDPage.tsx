@@ -29,11 +29,7 @@ const GTDPage: React.FC = () => {
   const [title, setTitle] = useState("");
   const { getToken } = useAuth();
 
-  const completedTodos = todos.filter((todo) => todo.completed);
-  const activeTodos = todos.filter((todo) => !todo.completed);
-
   const fetchTodos = useCallback(async () => {
-    setLoading(true);
     try {
       const token = await getToken();
       const response = await axios.get<Todo[]>(
@@ -156,8 +152,6 @@ const GTDPage: React.FC = () => {
     }
   };
 
-  console.log(completedTodos);
-
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Navbar />
@@ -182,7 +176,8 @@ const GTDPage: React.FC = () => {
             <Separator className="my-2" />
             <CardContent>
               <TodoList
-                todos={activeTodos}
+                todos={todos}
+                completed={false}
                 loading={loading}
                 onToggle={toggleTodoCompletion}
               />
@@ -196,15 +191,12 @@ const GTDPage: React.FC = () => {
             </CardHeader>
             <Separator className="my-1" />
             <CardContent>
-              {completedTodos.length != 0 ? (
-                <TodoList
-                  todos={completedTodos}
-                  loading={loading}
-                  onToggle={toggleTodoCompletion}
-                />
-              ) : (
-                <p>No todos completed</p>
-              )}
+              <TodoList
+                todos={todos}
+                completed={true}
+                loading={loading}
+                onToggle={toggleTodoCompletion}
+              />
             </CardContent>
           </Card>
         </div>
