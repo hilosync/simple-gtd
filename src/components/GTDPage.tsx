@@ -81,6 +81,9 @@ const GTDPage: React.FC = () => {
 
       setTitle("");
       setTodos([...todos, newtodo.data]);
+      fetchTodos().catch((error) => {
+        console.error("Error in fetchTodos:", error);
+      });
     } catch (err) {
       console.error("Error creating todo:", err);
     }
@@ -135,6 +138,7 @@ const GTDPage: React.FC = () => {
 
   const handleOptimise = async () => {
     try {
+      setLoading(true);
       const token = await getToken();
       await axios.post(
         `http://127.0.0.1:8000/api/todos/generate_tips/`,
@@ -147,13 +151,17 @@ const GTDPage: React.FC = () => {
           withCredentials: true,
         },
       );
+
+      fetchTodos().catch((error) => {
+        console.error("Error in fetchTodos:", error);
+      });
     } catch (error) {
       console.error("Error toggling todo completion:", error);
     }
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-background-500">
       <Navbar />
       <div className="container mx-auto p-4">
         <form onSubmit={handleSubmit} className="mb-8 flex space-x-2">
@@ -161,8 +169,7 @@ const GTDPage: React.FC = () => {
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter your todo"
-            className="mx-auto w-full max-w-2xl flex-grow text-lg"
+            placeholder="Enter your task"
             autoFocus
           />
         </form>
@@ -170,7 +177,7 @@ const GTDPage: React.FC = () => {
         <div className="flex flex-col space-y-6">
           <Card className="mx-auto w-full max-w-2xl">
             <CardHeader className="flex flex-row items-center justify-between">
-              <CardTitle>My Todos</CardTitle>
+              <CardTitle>My Tasks</CardTitle>
               <Button onClick={handleOptimise}>Optimise</Button>
             </CardHeader>
             <Separator className="my-2" />

@@ -12,11 +12,11 @@ const TodoList: React.FC<{
   const { filteredTodos, noTodosText } = completed
     ? {
         filteredTodos: todos.filter((todo) => todo.completed),
-        noTodosText: "No todos completed yet",
+        noTodosText: "No tasks completed yet",
       }
     : {
         filteredTodos: todos.filter((todo) => !todo.completed),
-        noTodosText: "Create a new todo above!",
+        noTodosText: "Create a new task above!",
       };
 
   const sortedTodos = [...filteredTodos].sort(
@@ -27,7 +27,7 @@ const TodoList: React.FC<{
     return (
       <div className="flex items-center justify-center p-4">
         <Loader2 className="mr-2 h-6 w-6 animate-spin" />
-        <span className="text-lg">Loading todos...</span>
+        <span className="text-lg">Loading tasks...</span>
       </div>
     );
   }
@@ -38,7 +38,7 @@ const TodoList: React.FC<{
         {sortedTodos.map((todo) => (
           <li
             key={todo.id}
-            className="border-b border-gray-200 pb-4 last:border-b-0"
+            className="border-b border-grape-200 pb-4 last:border-b-0"
           >
             <div className="flex items-center space-x-3">
               <Checkbox
@@ -52,7 +52,7 @@ const TodoList: React.FC<{
               </span>
             </div>
             {todo.extra && (
-              <p className="mt-2 pl-7 text-sm text-gray-600">{todo.extra}</p>
+              <p className="text-gray-00 mt-2 pl-7 text-sm">{todo.extra}</p>
             )}
           </li>
         ))}

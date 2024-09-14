@@ -1,5 +1,4 @@
 import "~/styles/globals.css";
-import { ThemeProvider } from "~/components/ThemeProvider";
 import { Inter as FontSans } from "next/font/google";
 import axios from "axios";
 
@@ -21,7 +20,7 @@ export default function RootLayout({
     <html lang="en" className="">
       <body
         className={cn(
-          "bg-background min-h-screen font-sans text-black antialiased dark:bg-black dark:text-white",
+          "bg-background min-h-screen font-sans text-white antialiased",
           fontSans.variable,
         )}
       >
@@ -30,14 +29,7 @@ export default function RootLayout({
           name="csrfmiddlewaretoken"
           value="{{ csrf_token }}"
         />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          {children}
-        </ThemeProvider>
+        {children}
       </body>
     </html>
   );

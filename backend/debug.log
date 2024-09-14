@@ -2353,3 +2353,178 @@ Starting new HTTPS connection (1): api.clerk.com:443
 https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
 Starting new HTTPS connection (1): api.clerk.com:443
 https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Watching for file changes with StatReloader
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/certifi/cacert.pem'
+Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Helper-Method': 'beta.chat.completions.parse'}, 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10.'}, {'role': 'user', 'content': "\n            Here are some todos for a person with ADHD:\n            [{'id': 45, 'title': 'build gundam and legos with laila'}, {'id': 43, 'title': 'buy new phone'}, {'id': 32, 'title': 'finish creating portfolio website'}]\n\n            Please provide helpful tips for each todo and assign a priority from 1 to 10 (10 being highest priority), considering the following:\n            1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.\n            2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.\n            3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.\n            4. If possible and logically makes sense, break down each todo into smaller, manageable tasks.\n            5. If appropriate, suggest strategies to stay focused and motivated.\n            6. If possible and appropriate, provide time management tips.\n            7. Do not put the priority in the 'extra' field.\n            8. Do not consider the other todos when setting the priority.\n            "}], 'model': 'gpt-3.5-turbo-1106', 'function_call': {'name': 'process_todos'}, 'functions': [{'name': 'process_todos', 'description': 'Process a list of todos, providing tips and priorities for each', 'parameters': {'type': 'object', 'properties': {'processed_todos': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'integer'}, 'title': {'type': 'string'}, 'extra': {'type': 'string'}, 'priority': {'type': 'integer', 'minimum': 1, 'maximum': 10}}, 'required': ['id', 'title', 'extra', 'priority']}}}, 'required': ['processed_todos']}}]}}
+Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10db5f230>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x10d87a5d0> server_hostname='api.openai.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10db5f470>
+send_request_headers.started request=<Request [b'POST']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'POST']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 14 Sep 2024 13:19:21 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-lhvdvnl7e2a263yrrjguuuxk'), (b'openai-processing-ms', b'861'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199648'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'105ms'), (b'x-request-id', b'req_88dedc587dee10f23698bf6c83efe57b'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=whUS1L5sDG_hM4r7AygKWbmHixYcDOc7481ePjEXFIs-1726319961-1.0.1.1-kHDKqESN8.QaIKZ8CN9m.CZQGG62_TQvxI7UbAw0OK7bAzdx35GCPHAbf9LgbyZ8cyZ2J2DjjTpHe23iRi2HGw; path=/; expires=Sat, 14-Sep-24 13:49:21 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=Yh9AIt6sRTR0iA57AMVDiXrTeFYf4z7Qvi.RxFuu6ik-1726319961960-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8c30ab0a681176d7-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'POST']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 14 Sep 2024 13:19:21 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-lhvdvnl7e2a263yrrjguuuxk'), ('openai-processing-ms', '861'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=15552000; includeSubDomains; preload'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199648'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '105ms'), ('x-request-id', 'req_88dedc587dee10f23698bf6c83efe57b'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=whUS1L5sDG_hM4r7AygKWbmHixYcDOc7481ePjEXFIs-1726319961-1.0.1.1-kHDKqESN8.QaIKZ8CN9m.CZQGG62_TQvxI7UbAw0OK7bAzdx35GCPHAbf9LgbyZ8cyZ2J2DjjTpHe23iRi2HGw; path=/; expires=Sat, 14-Sep-24 13:49:21 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=Yh9AIt6sRTR0iA57AMVDiXrTeFYf4z7Qvi.RxFuu6ik-1726319961960-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8c30ab0a681176d7-LHR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+request_id: req_88dedc587dee10f23698bf6c83efe57b
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/certifi/cacert.pem'
+Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Helper-Method': 'beta.chat.completions.parse'}, 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10.'}, {'role': 'user', 'content': "\n            Here are some todos for a person with ADHD:\n            [{'id': 45, 'title': 'build gundam and legos with laila'}, {'id': 43, 'title': 'buy new phone'}, {'id': 32, 'title': 'finish creating portfolio website'}]\n\n            Please provide helpful tips for each todo and assign a priority from 1 to 10 (10 being highest priority), considering the following:\n            1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.\n            2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.\n            3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.\n            4. If possible and logically makes sense, break down each todo into smaller, manageable tasks.\n            5. If appropriate, suggest strategies to stay focused and motivated.\n            6. If possible and appropriate, provide time management tips.\n            7. Do not put the priority in the 'extra' field.\n            8. Do not consider the other todos when setting the priority.\n            "}], 'model': 'gpt-3.5-turbo-1106', 'function_call': {'name': 'process_todos'}, 'functions': [{'name': 'process_todos', 'description': 'Process a list of todos, providing tips and priorities for each', 'parameters': {'type': 'object', 'properties': {'processed_todos': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'integer'}, 'title': {'type': 'string'}, 'extra': {'type': 'string'}, 'priority': {'type': 'integer', 'minimum': 1, 'maximum': 10}}, 'required': ['id', 'title', 'extra', 'priority']}}}, 'required': ['processed_todos']}}]}}
+Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10d94a780>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x10db0fad0> server_hostname='api.openai.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10d9813d0>
+send_request_headers.started request=<Request [b'POST']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'POST']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 14 Sep 2024 13:20:29 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-lhvdvnl7e2a263yrrjguuuxk'), (b'openai-processing-ms', b'1533'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'10000'), (b'x-ratelimit-limit-tokens', b'200000'), (b'x-ratelimit-remaining-requests', b'9999'), (b'x-ratelimit-remaining-tokens', b'199647'), (b'x-ratelimit-reset-requests', b'8.64s'), (b'x-ratelimit-reset-tokens', b'105ms'), (b'x-request-id', b'req_fbceedad814c6a4e9855ee2e2f60f1f3'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=qcjaCxgRjgu08ptph8iCNZdb76DkI5Ru8VbVHekAAt0-1726320029-1.0.1.1-1qwR3xu5lAN3agYBumRPNGI3bUhAuFZqjviV21lxCN8LW__spSVfj1EtMrOaXMXf4A7FJE7fiUtRSDjrpi4uuA; path=/; expires=Sat, 14-Sep-24 13:50:29 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=XdckqQbhzBS7jkxJT7lLZCvwZuheCURtFjyAG9Kt3tU-1726320029638-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8c30acae5b6b641f-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'POST']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 14 Sep 2024 13:20:29 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-lhvdvnl7e2a263yrrjguuuxk'), ('openai-processing-ms', '1533'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=15552000; includeSubDomains; preload'), ('x-ratelimit-limit-requests', '10000'), ('x-ratelimit-limit-tokens', '200000'), ('x-ratelimit-remaining-requests', '9999'), ('x-ratelimit-remaining-tokens', '199647'), ('x-ratelimit-reset-requests', '8.64s'), ('x-ratelimit-reset-tokens', '105ms'), ('x-request-id', 'req_fbceedad814c6a4e9855ee2e2f60f1f3'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=qcjaCxgRjgu08ptph8iCNZdb76DkI5Ru8VbVHekAAt0-1726320029-1.0.1.1-1qwR3xu5lAN3agYBumRPNGI3bUhAuFZqjviV21lxCN8LW__spSVfj1EtMrOaXMXf4A7FJE7fiUtRSDjrpi4uuA; path=/; expires=Sat, 14-Sep-24 13:50:29 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=XdckqQbhzBS7jkxJT7lLZCvwZuheCURtFjyAG9Kt3tU-1726320029638-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8c30acae5b6b641f-LHR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+request_id: req_fbceedad814c6a4e9855ee2e2f60f1f3
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+close.started
+close.complete
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
