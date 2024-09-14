@@ -26,7 +26,7 @@ const HomePage: React.FC = () => {
             </p>
           </div>
 
-          <div className="mb-8 flex flex-col items-center space-y-6">
+          <div className="flex flex-col items-center space-y-6">
             <div className="flex items-center justify-center space-x-2">
               <Brain className="h-6 w-6 text-purple-400 sm:h-8 sm:w-8" />
               <h2 className="text-center text-2xl font-semibold sm:text-3xl">
