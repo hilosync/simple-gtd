@@ -2528,3 +2528,445 @@ Starting new HTTPS connection (1): api.clerk.com:443
 https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
 Starting new HTTPS connection (1): api.clerk.com:443
 https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+/Users/niksronis/Documents/code/simple-gtd/backend/api/views.py changed, reloading.
+close.started
+close.complete
+Watching for file changes with StatReloader
+/Users/niksronis/Documents/code/simple-gtd/backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/certifi/cacert.pem'
+Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Helper-Method': 'beta.chat.completions.parse'}, 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10.'}, {'role': 'user', 'content': "\n            Here are some todos for a person with ADHD:\n            [{'id': 52, 'title': 'go to boots and buy medicine'}, {'id': 51, 'title': 'Clean room'}, {'id': 45, 'title': 'build gundam and legos with laila'}, {'id': 43, 'title': 'buy new phone'}, {'id': 32, 'title': 'finish creating portfolio website'}]\n\n            Please provide helpful tips for each todo and assign a priority from 1 to 10 (10 being highest priority), considering the following:\n            1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.\n            2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.\n            3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.\n            4. If possible and logically makes sense, break down each todo into smaller, manageable tasks.\n            5. If appropriate, suggest strategies to stay focused and motivated.\n            6. If possible and appropriate, provide time management tips.\n            7. Do not put the priority in the 'extra' field.\n            8. Do not consider the other todos when setting the priority.\n            "}], 'model': 'gpt-4o', 'function_call': {'name': 'process_todos'}, 'functions': [{'name': 'process_todos', 'description': 'Process a list of todos, providing tips and priorities for each', 'parameters': {'type': 'object', 'properties': {'processed_todos': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'integer'}, 'title': {'type': 'string'}, 'extra': {'type': 'string'}, 'priority': {'type': 'integer', 'minimum': 1, 'maximum': 10}}, 'required': ['id', 'title', 'extra', 'priority']}}}, 'required': ['processed_todos']}}]}}
+Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10d966840>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x1096ef350> server_hostname='api.openai.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10974b500>
+send_request_headers.started request=<Request [b'POST']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'POST']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 14 Sep 2024 14:02:59 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-lhvdvnl7e2a263yrrjguuuxk'), (b'openai-processing-ms', b'2669'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'29626'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'748ms'), (b'x-request-id', b'req_ba32d1f4102bcc26598a0d883a125dcd'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=5KjAN_oPkJHpUVC7Yc1ijw0c6v3IpUFAltzlixDEay0-1726322579-1.0.1.1-vAa.hUwGAgxUD85neT06Azra_DeU2CG5bD2GryTpc5har4HWL4lQ.L5qbmC5ahZokZY2K1pv_LZ6g40ux3ItQQ; path=/; expires=Sat, 14-Sep-24 14:32:59 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=HKFNKAlz2DzFyafT38jTx9kvJwLwMaFjX38OQCCUxCo-1726322579189-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8c30eae55c05cd7a-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'POST']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 14 Sep 2024 14:02:59 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-lhvdvnl7e2a263yrrjguuuxk'), ('openai-processing-ms', '2669'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=15552000; includeSubDomains; preload'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '30000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '29626'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '748ms'), ('x-request-id', 'req_ba32d1f4102bcc26598a0d883a125dcd'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=5KjAN_oPkJHpUVC7Yc1ijw0c6v3IpUFAltzlixDEay0-1726322579-1.0.1.1-vAa.hUwGAgxUD85neT06Azra_DeU2CG5bD2GryTpc5har4HWL4lQ.L5qbmC5ahZokZY2K1pv_LZ6g40ux3ItQQ; path=/; expires=Sat, 14-Sep-24 14:32:59 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=HKFNKAlz2DzFyafT38jTx9kvJwLwMaFjX38OQCCUxCo-1726322579189-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8c30eae55c05cd7a-LHR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+request_id: req_ba32d1f4102bcc26598a0d883a125dcd
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+/Users/niksronis/Documents/code/simple-gtd/backend/api/views.py changed, reloading.
+close.started
+close.complete
+Watching for file changes with StatReloader
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/certifi/cacert.pem'
+Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Helper-Method': 'beta.chat.completions.parse'}, 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10.'}, {'role': 'user', 'content': "\n            Here are some todos for a person with ADHD:\n            [{'id': 52, 'title': 'go to boots and buy medicine'}, {'id': 51, 'title': 'Clean room'}, {'id': 45, 'title': 'build gundam and legos with laila'}, {'id': 43, 'title': 'buy new phone'}, {'id': 32, 'title': 'finish creating portfolio website'}]\n\n            Please provide helpful tips for each todo and assign a priority from 1 to 10 (10 being highest priority), considering the following:\n            1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.\n            2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.\n            3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.\n            4. If possible and logically makes sense, break down each todo into smaller, manageable tasks.\n            5. If appropriate, suggest strategies to stay focused and motivated.\n            6. If possible and appropriate, provide time management tips.\n            7. Make any advice given short and succinct, do not give too many examples and focus on most impactful advice.\n            7. Do not put the priority in the 'extra' field.\n            8. Do not consider the other todos when setting the priority.\n            "}], 'model': 'gpt-4o', 'function_call': {'name': 'process_todos'}, 'functions': [{'name': 'process_todos', 'description': 'Process a list of todos, providing tips and priorities for each', 'parameters': {'type': 'object', 'properties': {'processed_todos': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'integer'}, 'title': {'type': 'string'}, 'extra': {'type': 'string'}, 'priority': {'type': 'integer', 'minimum': 1, 'maximum': 10}}, 'required': ['id', 'title', 'extra', 'priority']}}}, 'required': ['processed_todos']}}]}}
+Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x109cf11f0>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x109af83d0> server_hostname='api.openai.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x109cf14f0>
+send_request_headers.started request=<Request [b'POST']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'POST']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 14 Sep 2024 14:06:24 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-lhvdvnl7e2a263yrrjguuuxk'), (b'openai-processing-ms', b'2090'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'29595'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'810ms'), (b'x-request-id', b'req_522682f7f577dc5c4812632dbc02016a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=_xjhfjuPvqDzYbAuPed4IYiqrNlg9WikDj4xUdiXjsg-1726322784-1.0.1.1-s.5Z8Hig5moNqvloJzFEnBAH3V1n2kRdHLxwQMaudZRutYySoKsH4WTF7t9lcR3KYw5snh.gC.HVgNwI8N1h4w; path=/; expires=Sat, 14-Sep-24 14:36:24 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=uzSNXDl9Imuaj.PreGnTqZOTZNAcTo9.yjtdXeV4FkQ-1726322784808-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8c30efedfb685316-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'POST']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 14 Sep 2024 14:06:24 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-lhvdvnl7e2a263yrrjguuuxk'), ('openai-processing-ms', '2090'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=15552000; includeSubDomains; preload'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '30000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '29595'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '810ms'), ('x-request-id', 'req_522682f7f577dc5c4812632dbc02016a'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=_xjhfjuPvqDzYbAuPed4IYiqrNlg9WikDj4xUdiXjsg-1726322784-1.0.1.1-s.5Z8Hig5moNqvloJzFEnBAH3V1n2kRdHLxwQMaudZRutYySoKsH4WTF7t9lcR3KYw5snh.gC.HVgNwI8N1h4w; path=/; expires=Sat, 14-Sep-24 14:36:24 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=uzSNXDl9Imuaj.PreGnTqZOTZNAcTo9.yjtdXeV4FkQ-1726322784808-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8c30efedfb685316-LHR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+request_id: req_522682f7f577dc5c4812632dbc02016a
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+/Users/niksronis/Documents/code/simple-gtd/backend/api/views.py changed, reloading.
+close.started
+close.complete
+Watching for file changes with StatReloader
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/certifi/cacert.pem'
+Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Helper-Method': 'beta.chat.completions.parse'}, 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10.'}, {'role': 'user', 'content': "\n            Here are some todos for a person with ADHD:\n            [{'id': 52, 'title': 'go to boots and buy medicine'}, {'id': 51, 'title': 'Clean room'}, {'id': 45, 'title': 'build gundam and legos with laila'}, {'id': 43, 'title': 'buy new phone'}, {'id': 32, 'title': 'finish creating portfolio website'}]\n\n            Please provide helpful tips for each todo and assign a priority from 1 to 10 (10 being highest priority), considering the following:\n            1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.\n            2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.\n            3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.\n            5. If appropriate, suggest strategies to stay focused and motivated.\n            6. If possible and appropriate, provide time management tips.\n            7. Make any advice given short and succinct, do not give too many examples and focus on most impactful advice.\n            7. Do not put the priority in the 'extra' field.\n            8. Do not consider the other todos when setting the priority.\n            "}], 'model': 'gpt-4o', 'function_call': {'name': 'process_todos'}, 'functions': [{'name': 'process_todos', 'description': 'Process a list of todos, providing tips and priorities for each', 'parameters': {'type': 'object', 'properties': {'processed_todos': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'integer'}, 'title': {'type': 'string'}, 'extra': {'type': 'string'}, 'priority': {'type': 'integer', 'minimum': 1, 'maximum': 10}}, 'required': ['id', 'title', 'extra', 'priority']}}}, 'required': ['processed_todos']}}]}}
+Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10b7b3290>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x10b761d50> server_hostname='api.openai.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10b7b3440>
+send_request_headers.started request=<Request [b'POST']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'POST']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 14 Sep 2024 17:10:17 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-lhvdvnl7e2a263yrrjguuuxk'), (b'openai-processing-ms', b'1776'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'29622'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'756ms'), (b'x-request-id', b'req_759d012152fdbd934742707707cffe94'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=ZC3tNpeHEwIXsLOGMrQQTys81bQH5hLm8RNDKPIQp7c-1726333817-1.0.1.1-pqzrZAI9WwSyyh1IsbY8n3NEFuO4WLymeRMWglzbYgcERRFIWEK6uZpPwLsld.v5NbzDSQJtV1Zwjvdq2btR2g; path=/; expires=Sat, 14-Sep-24 17:40:17 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=FbAgWhWx4oPkTWC1Xn4FGZ0q4yK6dzw4nvL3b45kTcg-1726333817630-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8c31fd4b3ac3bef8-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'POST']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 14 Sep 2024 17:10:17 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-lhvdvnl7e2a263yrrjguuuxk'), ('openai-processing-ms', '1776'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=15552000; includeSubDomains; preload'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '30000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '29622'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '756ms'), ('x-request-id', 'req_759d012152fdbd934742707707cffe94'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=ZC3tNpeHEwIXsLOGMrQQTys81bQH5hLm8RNDKPIQp7c-1726333817-1.0.1.1-pqzrZAI9WwSyyh1IsbY8n3NEFuO4WLymeRMWglzbYgcERRFIWEK6uZpPwLsld.v5NbzDSQJtV1Zwjvdq2btR2g; path=/; expires=Sat, 14-Sep-24 17:40:17 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=FbAgWhWx4oPkTWC1Xn4FGZ0q4yK6dzw4nvL3b45kTcg-1726333817630-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8c31fd4b3ac3bef8-LHR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+request_id: req_759d012152fdbd934742707707cffe94
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+/Users/niksronis/Documents/code/simple-gtd/backend/api/views.py changed, reloading.
+close.started
+close.complete
+Watching for file changes with StatReloader
+/Users/niksronis/Documents/code/simple-gtd/backend/api/views.py changed, reloading.
+Watching for file changes with StatReloader
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/certifi/cacert.pem'
+Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Helper-Method': 'beta.chat.completions.parse'}, 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10.'}, {'role': 'user', 'content': "\n            Here are some todos for a person with ADHD:\n            [{'id': 52, 'title': 'go to boots and buy medicine'}, {'id': 51, 'title': 'Clean room'}, {'id': 45, 'title': 'build gundam and legos with laila'}, {'id': 43, 'title': 'buy new phone'}, {'id': 32, 'title': 'finish creating portfolio website'}]\n\n            Please provide helpful tips for each todo and assign a priority from 1 to 10 (10 being highest priority), considering the following:\n            1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.\n            2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.\n            3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.\n            5. If appropriate, suggest strategies to stay focused and motivated.\n            6. If possible and appropriate, provide time management tips.\n            7. Do not put the priority in the 'extra' field.\n            8. Do not consider the other todos when setting the priority.\n            "}], 'model': 'gpt-4o', 'function_call': {'name': 'process_todos'}, 'functions': [{'name': 'process_todos', 'description': 'Process a list of todos, providing tips and priorities for each', 'parameters': {'type': 'object', 'properties': {'processed_todos': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'integer'}, 'title': {'type': 'string'}, 'extra': {'type': 'string'}, 'priority': {'type': 'integer', 'minimum': 1, 'maximum': 10}}, 'required': ['id', 'title', 'extra', 'priority']}}}, 'required': ['processed_todos']}}]}}
+Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x105ec29c0>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x105e72b50> server_hostname='api.openai.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x105ec2e70>
+send_request_headers.started request=<Request [b'POST']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'POST']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 14 Sep 2024 17:11:00 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-lhvdvnl7e2a263yrrjguuuxk'), (b'openai-processing-ms', b'2612'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'29652'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'696ms'), (b'x-request-id', b'req_7d7685d28e12c6a22057bde3839a67cd'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=afJii1cy.D8QrbBaEc9NvmFZFTiox6TUTJZ1P1Cvy7c-1726333860-1.0.1.1-mfDd3lsk4w4deduZ_4PZ2V1VwAlPlkM._ooDmrxSpTZn9f7oqSfNeGGNIllCptrLZIaXCx.kxoSucCn3PEAB1A; path=/; expires=Sat, 14-Sep-24 17:41:00 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=6ZPUH443Vy82tpEoDX6f0vQKEBogucb27hQmqhuRDuk-1726333860060-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8c31fe4f4c09943f-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'POST']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 14 Sep 2024 17:11:00 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-lhvdvnl7e2a263yrrjguuuxk'), ('openai-processing-ms', '2612'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=15552000; includeSubDomains; preload'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '30000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '29652'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '696ms'), ('x-request-id', 'req_7d7685d28e12c6a22057bde3839a67cd'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=afJii1cy.D8QrbBaEc9NvmFZFTiox6TUTJZ1P1Cvy7c-1726333860-1.0.1.1-mfDd3lsk4w4deduZ_4PZ2V1VwAlPlkM._ooDmrxSpTZn9f7oqSfNeGGNIllCptrLZIaXCx.kxoSucCn3PEAB1A; path=/; expires=Sat, 14-Sep-24 17:41:00 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=6ZPUH443Vy82tpEoDX6f0vQKEBogucb27hQmqhuRDuk-1726333860060-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8c31fe4f4c09943f-LHR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+request_id: req_7d7685d28e12c6a22057bde3839a67cd
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Internal Server Error: /api/todos/
+Traceback (most recent call last):
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/jwt/api_jws.py", line 258, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 1)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/api/custom_auth.py", line 39, in validate_token
+    payload = jwt.decode(
+              ^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/jwt/api_jwt.py", line 152, in decode_complete
+    decoded = api_jws.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/jwt/api_jws.py", line 199, in decode_complete
+    payload, signing_input, header, signature = self._load(jwt)
+                                                ^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/jwt/api_jws.py", line 261, in _load
+    raise DecodeError("Not enough segments") from err
+jwt.exceptions.DecodeError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/api/custom_auth.py", line 14, in authenticate
+    user_id, validated_token = validate_token(request.headers['Authorization'])
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/api/custom_auth.py", line 48, in validate_token
+    raise Exception("Token decode error.")
+Exception: Token decode error.
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Internal Server Error: /api/todos/
+Traceback (most recent call last):
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/jwt/api_jws.py", line 258, in _load
+    signing_input, crypto_segment = jwt.rsplit(b".", 1)
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: not enough values to unpack (expected 2, got 1)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/api/custom_auth.py", line 39, in validate_token
+    payload = jwt.decode(
+              ^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/jwt/api_jwt.py", line 152, in decode_complete
+    decoded = api_jws.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/jwt/api_jws.py", line 199, in decode_complete
+    payload, signing_input, header, signature = self._load(jwt)
+                                                ^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/jwt/api_jws.py", line 261, in _load
+    raise DecodeError("Not enough segments") from err
+jwt.exceptions.DecodeError: Not enough segments
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 497, in dispatch
+    self.initial(request, *args, **kwargs)
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 414, in initial
+    self.perform_authentication(request)
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/views.py", line 324, in perform_authentication
+    request.user
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/request.py", line 231, in user
+    self._authenticate()
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/rest_framework/request.py", line 384, in _authenticate
+    user_auth_tuple = authenticator.authenticate(self)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/api/custom_auth.py", line 14, in authenticate
+    user_id, validated_token = validate_token(request.headers['Authorization'])
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/niksronis/Documents/code/simple-gtd/backend/api/custom_auth.py", line 48, in validate_token
+    raise Exception("Token decode error.")
+Exception: Token decode error.
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/certifi/cacert.pem'
+Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Helper-Method': 'beta.chat.completions.parse'}, 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10.'}, {'role': 'user', 'content': "\n            Here are some todos for a person with ADHD:\n            [{'id': 54, 'title': 'cuddle for 10 hours'}, {'id': 53, 'title': 'make pb&j'}]\n\n            Please provide helpful tips for each todo and assign a priority from 1 to 10 (10 being highest priority), considering the following:\n            1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.\n            2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.\n            3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.\n            5. If appropriate, suggest strategies to stay focused and motivated.\n            6. If possible and appropriate, provide time management tips.\n            7. Do not put the priority in the 'extra' field.\n            8. Do not consider the other todos when setting the priority.\n            "}], 'model': 'gpt-4o', 'function_call': {'name': 'process_todos'}, 'functions': [{'name': 'process_todos', 'description': 'Process a list of todos, providing tips and priorities for each', 'parameters': {'type': 'object', 'properties': {'processed_todos': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'integer'}, 'title': {'type': 'string'}, 'extra': {'type': 'string'}, 'priority': {'type': 'integer', 'minimum': 1, 'maximum': 10}}, 'required': ['id', 'title', 'extra', 'priority']}}}, 'required': ['processed_todos']}}]}}
+Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x105ec3440>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x105e53a50> server_hostname='api.openai.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10a0783b0>
+send_request_headers.started request=<Request [b'POST']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'POST']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 14 Sep 2024 17:13:14 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-lhvdvnl7e2a263yrrjguuuxk'), (b'openai-processing-ms', b'1131'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'29693'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'614ms'), (b'x-request-id', b'req_fb4cac617cbff031ee10a7700f023dff'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=u_NPxdbUwTCFazewkZ76jRgaKsazvF5VKrYaoflGdQ4-1726333994-1.0.1.1-DkWmjVdeHu0DVI2eswTksRDdvscstIdnt9eDjWqUvoKhaXc7l82VrUOQxI4VIIy1dDvwW0GR.0k_rR80NDRZSA; path=/; expires=Sat, 14-Sep-24 17:43:14 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=FSFAa62iL6qMl9U84rU8NubdpoxH7SzF74emks4nOK0-1726333994499-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8c3201a14bcbcd95-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'POST']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 14 Sep 2024 17:13:14 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-lhvdvnl7e2a263yrrjguuuxk'), ('openai-processing-ms', '1131'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=15552000; includeSubDomains; preload'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '30000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '29693'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '614ms'), ('x-request-id', 'req_fb4cac617cbff031ee10a7700f023dff'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=u_NPxdbUwTCFazewkZ76jRgaKsazvF5VKrYaoflGdQ4-1726333994-1.0.1.1-DkWmjVdeHu0DVI2eswTksRDdvscstIdnt9eDjWqUvoKhaXc7l82VrUOQxI4VIIy1dDvwW0GR.0k_rR80NDRZSA; path=/; expires=Sat, 14-Sep-24 17:43:14 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=FSFAa62iL6qMl9U84rU8NubdpoxH7SzF74emks4nOK0-1726333994499-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8c3201a14bcbcd95-LHR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+request_id: req_fb4cac617cbff031ee10a7700f023dff
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/certifi/cacert.pem'
+Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Helper-Method': 'beta.chat.completions.parse'}, 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10.'}, {'role': 'user', 'content': "\n            Here are some todos for a person with ADHD:\n            [{'id': 54, 'title': 'cuddle for 10 hours'}, {'id': 53, 'title': 'make pb&j'}]\n\n            Please provide helpful tips for each todo and assign a priority from 1 to 10 (10 being highest priority), considering the following:\n            1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.\n            2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.\n            3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.\n            5. If appropriate, suggest strategies to stay focused and motivated.\n            6. If possible and appropriate, provide time management tips.\n            7. Do not put the priority in the 'extra' field.\n            8. Do not consider the other todos when setting the priority.\n            "}], 'model': 'gpt-4o', 'function_call': {'name': 'process_todos'}, 'functions': [{'name': 'process_todos', 'description': 'Process a list of todos, providing tips and priorities for each', 'parameters': {'type': 'object', 'properties': {'processed_todos': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'integer'}, 'title': {'type': 'string'}, 'extra': {'type': 'string'}, 'priority': {'type': 'integer', 'minimum': 1, 'maximum': 10}}, 'required': ['id', 'title', 'extra', 'priority']}}}, 'required': ['processed_todos']}}]}}
+Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x105e24260>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x105dc1fd0> server_hostname='api.openai.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x105ea7830>
+send_request_headers.started request=<Request [b'POST']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'POST']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 14 Sep 2024 17:13:21 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-lhvdvnl7e2a263yrrjguuuxk'), (b'openai-processing-ms', b'1133'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'29693'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'614ms'), (b'x-request-id', b'req_6347180e840c06de35728bdac188b155'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=yJU6SFZEwjEnsXrqPDa9S_05VH0EyFATzGupSqVxz8o-1726334001-1.0.1.1-tkHJYV5Y8A61s2RcEeXI6UGOolofVRNdny7Mc3NfY4j.82MCqkAiSOahK1JQOkha7HaSBI2PjCnWnm0UbhOknw; path=/; expires=Sat, 14-Sep-24 17:43:21 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=BEOgyixvashPi_OYK3c_1OJSaLhhk9q4pRcNx98VG98-1726334001185-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8c3201cb1fa371cf-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'POST']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 14 Sep 2024 17:13:21 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-lhvdvnl7e2a263yrrjguuuxk'), ('openai-processing-ms', '1133'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=15552000; includeSubDomains; preload'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '30000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '29693'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '614ms'), ('x-request-id', 'req_6347180e840c06de35728bdac188b155'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=yJU6SFZEwjEnsXrqPDa9S_05VH0EyFATzGupSqVxz8o-1726334001-1.0.1.1-tkHJYV5Y8A61s2RcEeXI6UGOolofVRNdny7Mc3NfY4j.82MCqkAiSOahK1JQOkha7HaSBI2PjCnWnm0UbhOknw; path=/; expires=Sat, 14-Sep-24 17:43:21 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=BEOgyixvashPi_OYK3c_1OJSaLhhk9q4pRcNx98VG98-1726334001185-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8c3201cb1fa371cf-LHR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+request_id: req_6347180e840c06de35728bdac188b155
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+/Users/niksronis/Documents/code/simple-gtd/backend/api/views.py changed, reloading.
+close.started
+close.complete
+close.started
+close.complete
+close.started
+close.complete
+Watching for file changes with StatReloader
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/certifi/cacert.pem'
+Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Helper-Method': 'beta.chat.completions.parse'}, 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10.'}, {'role': 'user', 'content': "\n            Here are some todos for a person with ADHD:\n            [{'id': 54, 'title': 'cuddle for 10 hours'}]\n\n            Please provide helpful tips for each todo and assign a priority from 1 to 10 (10 being highest priority), considering the following:\n            1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.\n            2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.\n            3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.\n            5. If appropriate, suggest strategies to stay focused and motivated.\n            6. If possible and appropriate, provide time management tips.\n            7. Do not put the priority in the 'extra' field.\n            8. Do not consider the other todos when setting the priority.\n            "}], 'model': 'gpt-4o', 'function_call': {'name': 'process_todos'}, 'functions': [{'name': 'process_todos', 'description': 'Process a list of todos, providing tips and priorities for each', 'parameters': {'type': 'object', 'properties': {'processed_todos': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'integer'}, 'title': {'type': 'string'}, 'extra': {'type': 'string'}, 'priority': {'type': 'integer', 'minimum': 1, 'maximum': 10}}, 'required': ['id', 'title', 'extra', 'priority']}}}, 'required': ['processed_todos']}}]}}
+Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1099adbe0>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x109963450> server_hostname='api.openai.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x1099adb50>
+send_request_headers.started request=<Request [b'POST']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'POST']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 14 Sep 2024 17:14:19 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-lhvdvnl7e2a263yrrjguuuxk'), (b'openai-processing-ms', b'367'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'29702'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'596ms'), (b'x-request-id', b'req_a405c9b7bfdb2dda5a8ac7f23497ee6a'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=uywBmMsExUIEPeZ0n1k2a.YBEzyOuaKG.mY2_mbulxc-1726334059-1.0.1.1-0jJet0bwmQgtvwBdkpnaIe3KoLt.1vUbfV1GOaDlEmfJCHSkYfb77V9F5tu1guporei5bsTGuYOjlVdHejSPqA; path=/; expires=Sat, 14-Sep-24 17:44:19 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=lkv5gXnyOUb2w.GX9PezCReJiwQIPhPHPQtH8LZKOLA-1726334059175-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8c320337b9df63fe-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'POST']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 14 Sep 2024 17:14:19 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-lhvdvnl7e2a263yrrjguuuxk'), ('openai-processing-ms', '367'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=15552000; includeSubDomains; preload'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '30000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '29702'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '596ms'), ('x-request-id', 'req_a405c9b7bfdb2dda5a8ac7f23497ee6a'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=uywBmMsExUIEPeZ0n1k2a.YBEzyOuaKG.mY2_mbulxc-1726334059-1.0.1.1-0jJet0bwmQgtvwBdkpnaIe3KoLt.1vUbfV1GOaDlEmfJCHSkYfb77V9F5tu1guporei5bsTGuYOjlVdHejSPqA; path=/; expires=Sat, 14-Sep-24 17:44:19 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=lkv5gXnyOUb2w.GX9PezCReJiwQIPhPHPQtH8LZKOLA-1726334059175-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8c320337b9df63fe-LHR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+request_id: req_a405c9b7bfdb2dda5a8ac7f23497ee6a
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+load_ssl_context verify=True cert=None trust_env=True http2=False
+load_verify_locations cafile='/Users/niksronis/Documents/code/simple-gtd/backend/env/lib/python3.12/site-packages/certifi/cacert.pem'
+Request options: {'method': 'post', 'url': '/chat/completions', 'headers': {'X-Stainless-Helper-Method': 'beta.chat.completions.parse'}, 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': 'You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10.'}, {'role': 'user', 'content': "\n            Here are some todos for a person with ADHD:\n            [{'id': 55, 'title': 'learn piano'}, {'id': 54, 'title': 'cuddle for 10 hours'}]\n\n            Please provide helpful tips for each todo and assign a priority from 1 to 10 (10 being highest priority), considering the following:\n            1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.\n            2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.\n            3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.\n            5. If appropriate, suggest strategies to stay focused and motivated.\n            6. If possible and appropriate, provide time management tips.\n            7. Do not put the priority in the 'extra' field.\n            8. Do not consider the other todos when setting the priority.\n            "}], 'model': 'gpt-4o', 'function_call': {'name': 'process_todos'}, 'functions': [{'name': 'process_todos', 'description': 'Process a list of todos, providing tips and priorities for each', 'parameters': {'type': 'object', 'properties': {'processed_todos': {'type': 'array', 'items': {'type': 'object', 'properties': {'id': {'type': 'integer'}, 'title': {'type': 'string'}, 'extra': {'type': 'string'}, 'priority': {'type': 'integer', 'minimum': 1, 'maximum': 10}}, 'required': ['id', 'title', 'extra', 'priority']}}}, 'required': ['processed_todos']}}]}}
+Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+connect_tcp.started host='api.openai.com' port=443 local_address=None timeout=5.0 socket_options=None
+connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x10567acf0>
+start_tls.started ssl_context=<ssl.SSLContext object at 0x109898850> server_hostname='api.openai.com' timeout=5.0
+start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x109872b70>
+send_request_headers.started request=<Request [b'POST']>
+send_request_headers.complete
+send_request_body.started request=<Request [b'POST']>
+send_request_body.complete
+receive_response_headers.started request=<Request [b'POST']>
+receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 14 Sep 2024 17:14:29 GMT'), (b'Content-Type', b'application/json'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'access-control-expose-headers', b'X-Request-ID'), (b'openai-organization', b'user-lhvdvnl7e2a263yrrjguuuxk'), (b'openai-processing-ms', b'793'), (b'openai-version', b'2020-10-01'), (b'strict-transport-security', b'max-age=15552000; includeSubDomains; preload'), (b'x-ratelimit-limit-requests', b'500'), (b'x-ratelimit-limit-tokens', b'30000'), (b'x-ratelimit-remaining-requests', b'499'), (b'x-ratelimit-remaining-tokens', b'29693'), (b'x-ratelimit-reset-requests', b'120ms'), (b'x-ratelimit-reset-tokens', b'614ms'), (b'x-request-id', b'req_ad099a2eed2706789b92f67238d1265e'), (b'CF-Cache-Status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=fasxM6J7lENvoVPYUL_Rr4efRNof6lRedtgBvQuu2I8-1726334069-1.0.1.1-ZXe7_Kvk.iO.ltUqMyYiEqRO6KNovRJv.dwnJSXNI8JPIx6y97OoqBVJ_lJMT4A1R_nC6QaDFLjJeIEzyNaH7A; path=/; expires=Sat, 14-Sep-24 17:44:29 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=259.RL2HTBrlX6EK5ZIH9LZpI6hYYYi5T66Ko9U3MiA-1726334069021-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'8c3203750f2dbd96-LHR'), (b'Content-Encoding', b'gzip'), (b'alt-svc', b'h3=":443"; ma=86400')])
+HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 200 OK"
+receive_response_body.started request=<Request [b'POST']>
+receive_response_body.complete
+response_closed.started
+response_closed.complete
+HTTP Response: POST https://api.openai.com/v1/chat/completions "200 OK" Headers([('date', 'Sat, 14 Sep 2024 17:14:29 GMT'), ('content-type', 'application/json'), ('transfer-encoding', 'chunked'), ('connection', 'keep-alive'), ('access-control-expose-headers', 'X-Request-ID'), ('openai-organization', 'user-lhvdvnl7e2a263yrrjguuuxk'), ('openai-processing-ms', '793'), ('openai-version', '2020-10-01'), ('strict-transport-security', 'max-age=15552000; includeSubDomains; preload'), ('x-ratelimit-limit-requests', '500'), ('x-ratelimit-limit-tokens', '30000'), ('x-ratelimit-remaining-requests', '499'), ('x-ratelimit-remaining-tokens', '29693'), ('x-ratelimit-reset-requests', '120ms'), ('x-ratelimit-reset-tokens', '614ms'), ('x-request-id', 'req_ad099a2eed2706789b92f67238d1265e'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=fasxM6J7lENvoVPYUL_Rr4efRNof6lRedtgBvQuu2I8-1726334069-1.0.1.1-ZXe7_Kvk.iO.ltUqMyYiEqRO6KNovRJv.dwnJSXNI8JPIx6y97OoqBVJ_lJMT4A1R_nC6QaDFLjJeIEzyNaH7A; path=/; expires=Sat, 14-Sep-24 17:44:29 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=259.RL2HTBrlX6EK5ZIH9LZpI6hYYYi5T66Ko9U3MiA-1726334069021-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '8c3203750f2dbd96-LHR'), ('content-encoding', 'gzip'), ('alt-svc', 'h3=":443"; ma=86400')])
+request_id: req_ad099a2eed2706789b92f67238d1265e
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None

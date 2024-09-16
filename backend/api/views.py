@@ -58,7 +58,7 @@ class TodoViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'])
     def generate_tips(self, request):
         client = OpenAI(api_key=os.getenv('OPENAI_API_KEY'))
-        todos = Todo.objects.filter(user=request.user, completed=False)
+        todos = Todo.objects.filter(user=request.user, completed=False, extra="")
         todo_items = [{"id": todo.id, "title": todo.title} for todo in todos]
 
         if not todo_items:
@@ -99,7 +99,6 @@ class TodoViewSet(viewsets.ModelViewSet):
             1. If the todo is nonsensical or short, or no appropriate tips can be given, do not provide any hints or break it down into subtasks, leave the 'extra' field empty.
             2. If or the todo is nonsensical, too short or ambiguous, set the priority to 1.
             3. Assess the importance and urgency of each task to assign the priority, with things like eating or work taking higher priority.
-            4. If possible and logically makes sense, break down each todo into smaller, manageable tasks.
             5. If appropriate, suggest strategies to stay focused and motivated.
             6. If possible and appropriate, provide time management tips.
             7. Do not put the priority in the 'extra' field.
@@ -107,7 +106,7 @@ class TodoViewSet(viewsets.ModelViewSet):
             """
 
             completion = client.beta.chat.completions.parse(
-                model="gpt-3.5-turbo-1106",
+                model="gpt-4o",
                 messages=[
                     {"role": "system", "content": "You are a helpful assistant that provides tips for managing tasks, especially for people with ADHD. You also prioritize tasks on a scale of 1-10."},
                     {"role": "user", "content": prompt}
