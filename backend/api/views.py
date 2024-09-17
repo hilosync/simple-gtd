@@ -115,8 +115,6 @@ class TodoViewSet(viewsets.ModelViewSet):
                 function_call={"name": "process_todos"},
             )
 
-            print("completion: ", completion)
-
             response_content = json.loads(completion.choices[0].message.function_call.arguments)
             
             updated_todos = []
@@ -124,7 +122,6 @@ class TodoViewSet(viewsets.ModelViewSet):
                 todo = get_object_or_404(Todo, id=processed_todo['id'], user=request.user)
                 todo.extra = processed_todo['extra']
                 todo.priority = processed_todo['priority']
-                print(todo)
                 todo.save()
                 updated_todos.append(TodoItem(**processed_todo))
 

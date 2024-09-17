@@ -15,8 +15,12 @@ from datetime import timedelta
 from dotenv import load_dotenv
 import os
 
-BASEDIR = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../..'))
-load_dotenv(os.path.join(BASEDIR, '.env'))
+envBaseDir = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../'))
+
+if os.environ.get('DJANGO_ENV') == 'production':
+    load_dotenv(os.path.join(envBaseDir, '.env.production'))
+else:
+    load_dotenv(os.path.join(envBaseDir, '.env.development'))
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -27,33 +31,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-)*wt^4x%ue6n9v%jh3hg!i2^_fuqu%xs#-i%ix_d$v&i58)7@j',
+SECRET_KEY=os.environ.get('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get('DEBUG') == 'True'
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-        },
-    },
-    'loggers': {
-        '': {
-            'handlers': ['file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
 
-CSRF_TRUSTED_ORIGINS = ['http://*','https://*.127.0.0.1', 'http://localhost:3001', 'http://127.0.0.1:3001']
+CSRF_TRUSTED_ORIGINS = os.environ.get('CSRF_TRUSTED_ORIGINS', '').split(',')
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = os.environ.get('ALLOWED_HOSTS', '').split(',')
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
@@ -141,16 +127,11 @@ CSRF_COOKIE_SECURE = False
 CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_SECURE = False
 
-# Database settings (adjust with your PostgreSQL details)
-DATABASES={
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '5432',
-    }
+# Database settings
+import dj_database_url
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
 }
 
 # Password validation

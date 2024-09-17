@@ -14,6 +14,8 @@ import {
 } from "../components/ui/card";
 import TodoList from "./TodoList";
 
+const API_URL = process.env.NEXT_PUBLIC_REACT_APP_API_URL;
+
 export interface Todo {
   userId: string;
   id: number;
@@ -32,15 +34,11 @@ const GTDPage: React.FC = () => {
   const fetchTodos = useCallback(async () => {
     try {
       const token = await getToken();
-      const response = await axios.get<Todo[]>(
-        "http://127.0.0.1:8000/api/todos/",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
+      const response = await axios.get<Todo[]>(`${API_URL}/todos/`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
         },
-      );
-      console.log(response.data);
+      });
       setTodos(response.data);
     } catch (error: unknown) {
       if (axios.isAxiosError(error)) {
@@ -68,7 +66,7 @@ const GTDPage: React.FC = () => {
     try {
       const token = await getToken();
       const newtodo = await axios.post<Todo>(
-        "http://127.0.0.1:8000/api/todos/",
+        `${API_URL}/todos/`,
         { title },
         {
           headers: {
@@ -97,7 +95,7 @@ const GTDPage: React.FC = () => {
     try {
       const token = await getToken();
       await axios.patch(
-        `http://127.0.0.1:8000/api/todos/${todoId}/toggle_completion/`,
+        `${API_URL}/todos/${todoId}/toggle_completion/`,
         {},
         {
           headers: {
@@ -120,7 +118,7 @@ const GTDPage: React.FC = () => {
     setTodos(updatedTodos);
     try {
       const token = await getToken();
-      await axios.delete(`http://127.0.0.1:8000/api/todos/delete_completed/`, {
+      await axios.delete(`${API_URL}/todos/delete_completed/`, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
@@ -141,7 +139,7 @@ const GTDPage: React.FC = () => {
       setLoading(true);
       const token = await getToken();
       await axios.post(
-        `http://127.0.0.1:8000/api/todos/generate_tips/`,
+        `${API_URL}/todos/generate_tips/`,
         {},
         {
           headers: {

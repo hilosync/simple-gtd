@@ -2970,3 +2970,16 @@ Starting new HTTPS connection (1): api.clerk.com:443
 https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
 Starting new HTTPS connection (1): api.clerk.com:443
 https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+Starting new HTTPS connection (1): api.clerk.com:443
+https://api.clerk.com:443 "GET /v1/jwks HTTP/11" 200 None
+/Users/niksronis/Documents/code/simple-gtd/backend/backend/settings.py changed, reloading.
+close.started
+close.complete
+close.started
+close.complete
+Watching for file changes with StatReloader
+/Users/niksronis/Documents/code/simple-gtd/backend/backend/settings.py changed, reloading.
+Watching for file changes with StatReloader
+/Users/niksronis/Documents/code/simple-gtd/backend/backend/settings.py changed, reloading.
