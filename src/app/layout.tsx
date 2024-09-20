@@ -1,6 +1,8 @@
 import "~/styles/globals.css";
 import { Inter as FontSans } from "next/font/google";
 import axios from "axios";
+import { type Metadata } from "next";
+import { BrainCog } from "lucide-react";
 
 import { cn } from "../lib/utils";
 
@@ -13,11 +15,22 @@ const fontSans = FontSans({
   variable: "--font-sans",
 });
 
+export const metadata: Metadata = {
+  title: "SimpleGTD",
+  description: "A simple way to manage tasks for people with ADHD",
+  icons: {
+    icon: "/favicon.svg",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="">
+      <head>
+        <link rel="icon" href="/favicon.svg" />
+      </head>
       <body
         className={cn(
           "bg-background min-h-screen font-sans text-white antialiased",
