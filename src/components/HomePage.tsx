@@ -12,7 +12,7 @@ const HomePage: React.FC = () => {
         rangeY={800}
         particleCount={500}
         baseHue={220}
-        className="flex h-full w-full flex-col items-center justify-center px-4 py-8 md:px-10"
+        className="flex h-screen w-full flex-col items-center justify-center px-4 py-8 md:px-10"
       >
         <div className="flex min-h-screen w-full flex-col items-center justify-center py-2 text-paleLavender-100">
           <div className="mb-8 text-center">

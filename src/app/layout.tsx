@@ -2,7 +2,6 @@ import "~/styles/globals.css";
 import { Inter as FontSans } from "next/font/google";
 import axios from "axios";
 import { type Metadata } from "next";
-import { BrainCog } from "lucide-react";
 
 import { cn } from "../lib/utils";
 
@@ -27,13 +26,17 @@ export default function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" className="">
+    <html lang="en" className="h-full">
       <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+        />
         <link rel="icon" href="/favicon.svg" />
       </head>
       <body
         className={cn(
-          "bg-background min-h-screen font-sans text-white antialiased",
+          "bg-background h-screen overflow-hidden font-sans text-white antialiased",
           fontSans.variable,
         )}
       >
