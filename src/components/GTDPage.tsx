@@ -29,6 +29,8 @@ const GTDPage: React.FC = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
   const [loading, setLoading] = useState(true);
   const [title, setTitle] = useState("");
+  const [todoLimit, setTodoLimit] = useState(false);
+
   const { getToken } = useAuth();
 
   const fetchTodos = useCallback(async () => {
@@ -62,6 +64,11 @@ const GTDPage: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (todos.filter((todo) => !todo.completed).length >= 20) {
+      setTodoLimit(true);
+      return;
+    }
+    setTodoLimit(false);
 
     try {
       const token = await getToken();
@@ -161,17 +168,23 @@ const GTDPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-background-500">
       <Navbar />
-      <div className="container mx-auto p-4">
-        <form onSubmit={handleSubmit} className="mb-8 flex space-x-2">
-          <Input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Enter your task"
-            autoFocus
-          />
+      <div className="mx-auto p-4">
+        <form onSubmit={handleSubmit} className="mb-8 w-full">
+          <div className="flex w-full flex-col space-y-2">
+            <Input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Enter your task"
+              autoFocus
+            />
+            {todoLimit && (
+              <p className="mx-auto text-red-500">
+                Maximum number of todos reached (20)
+              </p>
+            )}
+          </div>
         </form>
-
         <div className="flex flex-col space-y-6">
           <Card className="mx-auto w-full max-w-2xl">
             <CardHeader className="flex flex-row items-center justify-between">
