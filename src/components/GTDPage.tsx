@@ -70,11 +70,25 @@ const GTDPage: React.FC = () => {
     }
     setTodoLimit(false);
 
+    const tempTitle = title;
+    setTitle("");
+
+    const tempTodo: Todo = {
+      userId: "",
+      id: 0,
+      title: tempTitle,
+      extra: "",
+      priority: 0,
+      completed: false,
+    };
+
+    setTodos([...todos, tempTodo]);
+
     try {
       const token = await getToken();
       const newtodo = await axios.post<Todo>(
         `${API_URL}/todos/`,
-        { title },
+        { tempTitle },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -169,8 +183,8 @@ const GTDPage: React.FC = () => {
     <div className="min-h-screen bg-background-500">
       <Navbar />
       <div className="mx-auto p-4">
-        <form onSubmit={handleSubmit} className="mb-8 w-full">
-          <div className="flex w-full flex-col space-y-2">
+        <div className="flex w-full flex-col">
+          <form onSubmit={handleSubmit} className="mb-4 w-full">
             <Input
               type="text"
               value={title}
@@ -178,13 +192,13 @@ const GTDPage: React.FC = () => {
               placeholder="Enter your task"
               autoFocus
             />
-            {todoLimit && (
-              <p className="mx-auto text-red-500">
-                Maximum number of todos reached (20)
-              </p>
-            )}
-          </div>
-        </form>
+          </form>
+          {todoLimit && (
+            <p className="mx-auto mb-4 text-red-500">
+              Maximum number of todos reached (20)
+            </p>
+          )}
+        </div>
         <div className="flex flex-col space-y-6">
           <Card className="mx-auto w-full max-w-2xl">
             <CardHeader className="flex flex-row items-center justify-between">

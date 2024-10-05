@@ -15,17 +15,31 @@ from datetime import timedelta
 from dotenv import load_dotenv
 import os
 
-envBaseDir = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../'))
+# envBaseDir = os.path.abspath(os.path.join(os.path.dirname( __file__ ), '../'))
 
-if os.environ.get('DJANGO_ENV') == 'production':
-    load_dotenv(os.path.join(envBaseDir, '.env.production'))
-else:
-    load_dotenv(os.path.join(envBaseDir, '.env.development'))
+# if os.environ.get('DJANGO_ENV') == 'production':
+#     load_dotenv(os.path.join(envBaseDir, '.env.production'))
+# else:
+#     load_dotenv(os.path.join(envBaseDir, '.env.development'))
 
+
+
+# Environment-based settings
+ENVIRONMENT = os.environ.get('DJANGO_ENV', 'development')
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+env_file = '.env.production' if ENVIRONMENT == 'production' else '.env.development'
+env_path = BASE_DIR / env_file
+
+# Load the appropriate .env file
+if env_path.exists():
+    load_dotenv(str(env_path))
+else:
+    raise Exception(f"Environment file {env_path} not found!")
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -72,6 +86,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -79,7 +94,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'backend.urls'
@@ -128,10 +142,16 @@ CSRF_COOKIE_HTTPONLY = False
 SESSION_COOKIE_SECURE = False
 
 # Database settings
-import dj_database_url
 
-DATABASES = {
-    'default': dj_database_url.config(default=os.environ.get('DATABASE_URL'))
+DATABASES={
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASS'),
+        'HOST': os.getenv('DB_ENDPOINT'),
+        'PORT': os.getenv('DB_PORT'),
+    }
 }
 
 # Password validation
@@ -175,5 +195,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "https://simplegtd.co.uk",
+]
 CORS_ALLOW_CREDENTIALS = True
