@@ -70,25 +70,23 @@ const GTDPage: React.FC = () => {
     }
     setTodoLimit(false);
 
-    const tempTitle = title;
-    setTitle("");
-
     const tempTodo: Todo = {
       userId: "",
       id: 0,
-      title: tempTitle,
+      title: title,
       extra: "",
-      priority: 0,
+      priority: 10,
       completed: false,
     };
 
-    setTodos([...todos, tempTodo]);
+    setTodos([tempTodo, ...todos]);
+    setTitle("");
 
     try {
       const token = await getToken();
-      const newtodo = await axios.post<Todo>(
+      await axios.post<Todo>(
         `${API_URL}/todos/`,
-        { tempTitle },
+        { title },
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -97,12 +95,6 @@ const GTDPage: React.FC = () => {
           withCredentials: true,
         },
       );
-
-      setTitle("");
-      setTodos([...todos, newtodo.data]);
-      fetchTodos().catch((error) => {
-        console.error("Error in fetchTodos:", error);
-      });
     } catch (err) {
       console.error("Error creating todo:", err);
     }
@@ -126,9 +118,6 @@ const GTDPage: React.FC = () => {
           withCredentials: true,
         },
       );
-      fetchTodos().catch((error) => {
-        console.error("Error in fetchTodos:", error);
-      });
     } catch (error) {
       console.error("Error toggling todo completion:", error);
     }
